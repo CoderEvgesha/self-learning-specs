@@ -38,3 +38,12 @@ tasks.jar {
     dependsOn(tasks.openApiGenerate)
     from("build/generated/src/main/java")
 }
+
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            artifactId = "library"
+            from(components["java"])
+        }
+    }
+}
