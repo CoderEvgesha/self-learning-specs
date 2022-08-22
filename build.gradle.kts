@@ -1,5 +1,6 @@
 plugins {
     java
+    `maven-publish`
     id("org.openapi.generator") version "6.0.1"
 }
 
