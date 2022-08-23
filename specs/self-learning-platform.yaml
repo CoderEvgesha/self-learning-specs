@@ -46,7 +46,8 @@ paths:
           in: query
           description: Id of Card to be deleted
           required: true
-          type: string
+          type: integer
+          format: int64
       responses:
         "200":
           description: Successfully deleted
@@ -96,7 +97,8 @@ paths:
           in: query
           description: id to filter by
           required: true
-          type: string
+          type: integer
+          format: int64
         - name: count
           in: query
           description: number of cards to fetch from the deck
@@ -141,7 +143,8 @@ paths:
           in: query
           description: Id of deck to be deleted
           required: true
-          type: string
+          type: integer
+          format: int64
       responses:
         "200":
           description: Successfully deleted
@@ -222,7 +225,8 @@ definitions:
       - id
     properties:
       id:
-        type: string
+        type: integer
+        format: int64
       guessedWord:
         type: string
         example: doggie
@@ -231,7 +235,8 @@ definitions:
         items:
           type: string
       deckId:
-        type: string
+        type: integer
+        format: int64
   DeckResponse:
     type: object
     required:
@@ -239,11 +244,13 @@ definitions:
       - name
     properties:
       id:
-        type: string
+        type: integer
+        format: int64
       name:
         type: string
       folderId:
-        type: string
+        type: integer
+        format: int64
       cards:
         type: array
         items:
@@ -262,7 +269,8 @@ definitions:
       - name
     properties:
       id:
-        type: string
+        type: integer
+        format: int64
       name:
         type: string
   DeckRequest:
@@ -271,9 +279,11 @@ definitions:
       - id
     properties:
       id:
-        type: string
+        type: integer
+        format: int64
       name:
         type: string
       folderId:
-        type: string
+        type: integer
+        format: int64
 
