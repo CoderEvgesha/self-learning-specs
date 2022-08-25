@@ -194,10 +194,10 @@ paths:
           description: Deck not found
         "500":
           description: Armageddon happened
-  /deck/cards:
+  /cards:
     get:
       tags:
-        - deck
+        - card
       summary: Finds cards by id deck
       description: ""
       operationId: findCardsByDeckId
