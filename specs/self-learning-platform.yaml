@@ -83,11 +83,33 @@ paths:
           description: Card not found
         "500":
           description: Armageddon happened
+    get:
+      tags:
+        - card
+      summary: Finds card by id
+      description: ""
+      operationId: findCardById
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: query
+          description: id to filter by
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Card'
+        "400":
+          description: Invalid id
   /deck:
     get:
       tags:
         - deck
-      summary: Finds deck by id
+      summary: Find deck by id
       description: ""
       operationId: findDeckById
       produces:
@@ -99,11 +121,6 @@ paths:
           required: true
           type: integer
           format: int64
-        - name: count
-          in: query
-          description: number of cards to fetch from the deck
-          required: false
-          type: number
       responses:
         "200":
           description: successful operation
@@ -177,6 +194,36 @@ paths:
           description: Deck not found
         "500":
           description: Armageddon happened
+  /deck/cards:
+    get:
+      tags:
+        - deck
+      summary: Finds cards by id deck
+      description: ""
+      operationId: findCardsByDeckId
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: query
+          description: id to filter by
+          required: true
+          type: integer
+          format: int64
+        - name: count
+          in: query
+          description: number of cards to fetch from the deck
+          required: false
+          type: number
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Card'
+        "400":
+          description: Invalid id
   /folder:
     get:
       tags:
@@ -286,4 +333,3 @@ definitions:
       folderId:
         type: integer
         format: int64
-
